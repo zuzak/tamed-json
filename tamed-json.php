@@ -63,7 +63,7 @@ foreach ($menu_dom->getElementsByTagName("table") as $table_offset => $menu_tabl
 
     // Found table with selected date.
     if ($contains_selected_date) {
-        $menu_data = array("status_code"=>0,"error"=>"");
+        $menu_data = array("status_code"=>0,"error"=>"","date"=>$date->getTimestamp());
         foreach ($menu_table->getElementsByTagName("tr") as $key => $table_row) {
             if ($key == 0)
                 continue;
