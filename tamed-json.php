@@ -42,7 +42,7 @@ if (isset($_GET["date"])) {
 }
 
 // Fetch menu.
-$menu_dom = DOMDocument::loadHTMLFile(HOSPITALITY_URL) or die(json_encode(array("status_code"=>3,"error"=>"Error fetching menu.")));
+$menu_dom = DOMDocument::loadHTMLFile(HOSPITALITY_URL) or die(json_encode(array("status_code"=>4,"error"=>"Error fetching menu.")));
 
 // Ugh.
 foreach ($menu_dom->getElementsByTagName("table") as $table_offset => $menu_table) {
