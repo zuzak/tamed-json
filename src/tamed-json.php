@@ -6,7 +6,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS 
  * SOFTWARE.
-*/
+ */
 
 // Disable error reporting.
 error_reporting(0);
@@ -51,7 +51,7 @@ foreach ($menu_dom->getElementsByTagName("table") as $table_offset => $menu_tabl
 
     $contains_selected_date = false; // Is selected date in current table?
     $column_offset = 0; // Column offset off selected date.
-    
+
     // Loop over each column header to find the offset for selected date.
     foreach ($menu_table->getElementsByTagName("thead")->item(0)->getElementsByTagName("th") as $offset => $menu_header) {
         if (strpos($menu_header->nodeValue, $date->format("d/m/Y")) !== false) {
@@ -60,7 +60,7 @@ foreach ($menu_dom->getElementsByTagName("table") as $table_offset => $menu_tabl
             break;
         }
     }
-    
+
     // Found table with selected date.
     if ($contains_selected_date) {
         $menu_data = array("status_code"=>0,"error"=>"");
