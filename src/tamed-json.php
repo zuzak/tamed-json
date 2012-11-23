@@ -8,6 +8,8 @@
  * SOFTWARE.
 */
 
+// Disable error reporting.
+error_reporting(0);
 // Define menu url as a constant.
 define("HOSPITALITY_URL", "http://www.aber.ac.uk/en/hospitality/hospitality-menu/");
 // Set default timezone to make php shut up.
@@ -39,4 +41,38 @@ if (isset($_GET["date"])) {
     $date = date_create();
 }
 
+// Fetch menu.
+$menu_dom = DOMDocument::loadHTMLFile(HOSPITALITY_URL) or die(json_encode(array("status_code"=>3,"error"=>"Error fetching menu.")));
 
+// Ugh.
+foreach ($menu_dom->getElementsByTagName("table") as $table_offset => $menu_table) {
+    if ($table_offset % 2 == 0 && $meal != "lunch" || $table_offset % 2 == 1 && $meal != "dinner") // Check if current table is what we want.
+        continue;
+
+    $contains_selected_date = false; // Is selected date in current table?
+    $column_offset = 0; // Column offset off selected date.
+    
+    // Loop over each column header to find the offset for selected date.
+    foreach ($menu_table->getElementsByTagName("thead")->item(0)->getElementsByTagName("th") as $offset => $menu_header) {
+        if (strpos($menu_header->nodeValue, $date->format("d/m/Y")) !== false) {
+            $contains_selected_date = true;
+            $column_offset = $offset;
+            break;
+        }
+    }
+    
+    // Found table with selected date.
+    if ($contains_selected_date) {
+        $menu_data = array("status_code"=>0,"error"=>"");
+        foreach ($menu_table->getElementsByTagName("tr") as $key => $table_row) {
+            if ($key == 0)
+                continue;
+            $menu_data[$table_row->firstChild->nodeValue] = $table_row->getElementsByTagName("td")->item($column_offset)->nodeValue;
+        }
+        echo(json_encode($menu_data));    
+        exit(0);
+    }
+
+}
+
+die(json_encode(array("status_code"=>3,"error"=>"Data not found")));
