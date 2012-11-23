@@ -34,6 +34,9 @@ else // Invalid value
 if (isset($_GET["date"])) {
     $date = date_create_from_format("dmY", $_GET["date"]);
     if (!$date) // Error parsing date.
-        die(json_encode(array("status_code"=>2,"error"=>"Invalid date format")));
+        die(json_encode(array("status_code"=>2,"error"=>"Invalid date format.")));
+} else {
+    $date = date_create();
 }
+
 
