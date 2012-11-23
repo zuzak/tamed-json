@@ -19,7 +19,7 @@ date_default_timezone_set("Europe/London");
 if (php_sapi_name() == 'cli') {
     // Display usage.
     if ($argc == 1 || $argv[1] == "--help")
-        die(json_encode(array("status_code"=>1,"error"=>"usage: php ".$argv[0]." meal=dinner [date=ddmmyy]")));
+        die(json_encode(array("status_code"=>1,"error"=>"usage: php ".$argv[0]." meal=dinner|lunch [date=ddmmyyyy]")));
     // Fill $_GET array with CLI arguments.
     parse_str(implode('&', array_slice($argv, 1)), $_GET);
 }
