@@ -67,7 +67,7 @@ foreach ($menu_dom->getElementsByTagName("table") as $table_offset => $menu_tabl
         foreach ($menu_table->getElementsByTagName("tr") as $key => $table_row) {
             if ($key == 0)
                 continue;
-            $menu_data[$table_row->firstChild->nodeValue] = $table_row->getElementsByTagName("td")->item($column_offset)->nodeValue;
+            $menu_data[$table_row->firstChild->nodeValue] = trim($table_row->getElementsByTagName("td")->item($column_offset)->nodeValue);
         }
         echo(json_encode($menu_data));    
         exit(0);
