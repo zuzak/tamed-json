@@ -13,7 +13,7 @@ Optionally specify a date:
 ```bash
 $ php tamed-json.php meal=dinner date=25102012
 ```
-#### From CGI
+#### From CGI:
 ```bash
 $ curl http://example.org/tamed-json.php?meal=lunch&date=25102012
 ```
