@@ -1,7 +1,4 @@
-tamed-json
-==========
-
-A JSON-api for http://www.aber.ac.uk/en/hospitality/hospitality-menu/ .
+JSON API implementation for http://www.aber.ac.uk/en/hospitality/hospitality-menu/ .
 
 Usage
 -----
@@ -15,7 +12,7 @@ $ php tamed-json.php meal=dinner date=25102012
 ```
 #### From CGI:
 ```bash
-$ curl http://example.org/tamed-json.php?meal=lunch&date=25102012
+$ curl "http://example.org/tamed-json.php?meal=lunch&date=25102012"
 ```
 
 Error codes
