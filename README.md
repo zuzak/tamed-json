@@ -26,7 +26,7 @@ Error codes
 Example output
 --------------
 ```json
-{"status_code":0,"error":"","date":1351103814,"meal":"lunch","Main One":"Roast leg of lamb with mint sauce","Main Two":"Chicken breast with paprika with chickpeas","Soup Of The Day":"Broccoli and stilton\u00a0","Vegetarian One":"Welsh rarebit jacket potato","Vegetarian Two":"Thai red vegetable curry with rice","Theatre":"Ginger chicken with noodles","Potatoes":"Roast, chips, parsley potatoe","Vegetables":"Red cabbage, bean medley parsnips cauliflower"}%
+{"status_code":0,"error":"","date":1351103814,"meal":"lunch","Main One":"Roast leg of lamb with mint sauce","Main Two":"Chicken breast with paprika with chickpeas","Soup Of The Day":"Broccoli and stilton\u00a0","Vegetarian One":"Welsh rarebit jacket potato","Vegetarian Two":"Thai red vegetable curry with rice","Theatre":"Ginger chicken with noodles","Potatoes":"Roast, chips, parsley potatoe","Vegetables":"Red cabbage, bean medley parsnips cauliflower"}
 ```
 ```json
 {"status_code":3,"error":"Data not found"}
